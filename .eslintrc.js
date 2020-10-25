@@ -42,6 +42,7 @@ module.exports = {
       'local-storage',
       'heart-rate',
       'file-transfer',
+      'app-cluster-storage',
       'haptics',
       'power',
       'device',

@@ -1,3 +1,4 @@
-<svg>
-  <rect id="background" />
+<svg viewport-fill="#000000">
+  <text id="time" fill="#FFFFFF" x="50%" y="50%" font-size="72" font-family="System-Regular" text-anchor="middle" text-length="6"/>
+  <text id="letter" fill="#FF0000" x="50%" y="90%" font-size="36" font-family="System-Regular" text-anchor="middle" text-length="12"/>
 </svg>
