@@ -3,6 +3,7 @@ import * as filesystem from 'fs';
 
 const state = {
   letter: '',
+  // add other state-items here
 };
 
 // set callback so you can interact with this in your views
@@ -26,7 +27,9 @@ function updateState() {
 function loadState() {
   try {
     const loadedState = filesystem.readFileSync('state.txt', 'json');
-    if (typeof loadedState.letter !== 'undefined') state.letter = loadedState.letter;
+    Object.keys(state).forEach((key) => {
+      if (typeof loadedState[key] !== 'undefined') state[key] = loadedState[key];
+    });
   } catch (err) {
     console.error(`Failed loading state: ${err}`);
   }
@@ -46,18 +49,12 @@ export function setStateItem(key, value) {
 function processFiles() {
   let fileName;
   while (fileName = inbox.nextFile()) { // eslint-disable-line
-    if (fileName === 'cluster.cbor') {
+    if (fileName === 'settings.cbor') {
       const data = filesystem.readFileSync(fileName, 'cbor');
 
-      if (typeof data.letter !== 'undefined') state.letter = data.letter;
-
-      updateState();
-      if (callback) callback();
-    } else if (fileName === 'settings.cbor') {
-      const data = filesystem.readFileSync(fileName, 'cbor');
-
-      console.log(data);
-      // add clock settings?
+      Object.keys(state).forEach((key) => {
+        if (typeof data[key] !== 'undefined') state[key] = data[key];
+      });
 
       updateState();
       if (callback) callback();

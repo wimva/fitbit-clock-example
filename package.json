@@ -4,13 +4,8 @@
   "private": true,
   "license": "UNLICENSED",
   "devDependencies": {
-    "@fitbit/sdk": "~5.0.1",
-    "@fitbit/sdk-cli": "^1.7.3",
-    "eslint": "^7.11.0",
-    "eslint-config-airbnb": "^18.2.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-react": "^7.21.5"
+    "@fitbit/sdk": "~6.0.2",
+    "@fitbit/sdk-cli": "^1.7.3"
   },
   "fitbit": {
     "appUUID": "78fe8355-c47c-440b-8782-2bfc9d8653e1",
@@ -21,7 +16,9 @@
     "iconFile": "resources/icon.png",
     "wipeColor": "#ffffff",
     "requestedPermissions": [
-      "access_app_cluster_storage"
+      "access_app_cluster_storage",
+      "access_heart_rate",
+      "access_activity"
     ],
     "buildTargets": [
       "atlas",

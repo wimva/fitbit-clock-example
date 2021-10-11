@@ -1,6 +1,8 @@
 import document from 'document';
 import clock from 'clock';
 import { preferences } from 'user-settings';
+import { HeartRateSensor } from 'heart-rate';
+import { today } from 'user-activity';
 import { init as initState, getStateItem, setStateCallback } from './state';
 import zeroPad from './utils/zero-pad';
 
@@ -10,9 +12,34 @@ initState();
 // elements
 const $letter = document.getElementById('letter');
 const $time = document.getElementById('time');
+const $hr = document.getElementById('hr');
+const $steps = document.getElementById('steps');
+const $calories = document.getElementById('calories');
+
+// define vars for later use;
+let time = '';
+let hr = '--';
+
+// get heart rate
+if (HeartRateSensor) {
+  const hrm = new HeartRateSensor({ frequency: 1 });
+  hrm.addEventListener('reading', () => {
+    hr = hrm.heartRate;
+  });
+  hrm.start();
+}
+
+// draw
+function draw() {
+  $time.text = time;
+  $letter.text = getStateItem('letter');
+  $hr.text = hr;
+  $steps.text = today.adjusted.steps;
+  $calories.text = today.adjusted.calories;
+}
 
 // time
-clock.granularity = 'minutes'; // seconds if you like to show seconds or update stats every second
+clock.granularity = 'seconds'; // seconds if you like to show seconds or update stats every second, minutes if you only need it minutely
 function updateTime(datetime) {
   const minute = datetime.getMinutes();
   const hour = datetime.getHours();
@@ -25,16 +52,18 @@ function updateTime(datetime) {
     hours = zeroPad(hours);
   }
   const mins = zeroPad(minute);
+  time = `${hours}:${mins}`;
 
-  $time.text = `${hours}:${mins}`;
+  // draw every second to show time changes
+  draw();
 }
+// use function above on clock tick
 clock.ontick = (evt) => updateTime(evt.date);
+// use the function on start as well
 updateTime(new Date());
 
-// draw
-function draw() {
-  $letter.text = getStateItem('letter');
-}
-
+// draw whenever a change in state happens
 setStateCallback(draw);
+
+// draw when code loaded
 draw();
