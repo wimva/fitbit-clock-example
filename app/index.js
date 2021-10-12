@@ -15,10 +15,18 @@ const $time = document.getElementById('time');
 const $hr = document.getElementById('hr');
 const $steps = document.getElementById('steps');
 const $calories = document.getElementById('calories');
+const $rectBlue = document.getElementById('rectBlue');
+const $group = document.getElementById('group');
 
 // define vars for later use;
 let time = '';
 let hr = '--';
+
+// click event
+$rectBlue.onclick = () => {
+  console.log('test');
+  $group.style.display = 'none';
+};
 
 // get heart rate
 if (HeartRateSensor) {
