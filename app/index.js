@@ -10,6 +10,7 @@ import zeroPad from './utils/zero-pad';
 initState();
 
 // elements
+const $location = document.getElementById('location');
 const $letter = document.getElementById('letter');
 const $time = document.getElementById('time');
 const $hr = document.getElementById('hr');
@@ -33,9 +34,16 @@ if (HeartRateSensor) {
 function draw() {
   $time.text = time;
   $letter.text = getStateItem('letter');
+  $location.text = getStateItem('location');
   $hr.text = hr;
   $steps.text = today.adjusted.steps;
   $calories.text = today.adjusted.calories;
+
+  if (getStateItem('toggle')) {
+    $location.style.display = 'inline';
+  } else {
+    $location.style.display = 'none';
+  }
 }
 
 // time

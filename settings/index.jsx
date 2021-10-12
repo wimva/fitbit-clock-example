@@ -18,6 +18,7 @@ registerSettingsPage((/* { settings } */) => (
           { name: 'H', value: 'H' },
         ]}
       />
+      <Toggle settingsKey="toggle" label="Example" />
     </Section>
   </Page>
 ));
