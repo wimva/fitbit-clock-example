@@ -28,7 +28,7 @@ function loadState() {
   try {
     const loadedState = filesystem.readFileSync('state.txt', 'json');
     Object.keys(state).forEach((key) => {
-      if (typeof loadedState[key] !== 'undefined') state[key] = loadedState[key];
+      if (typeof loadedState[key] != 'undefined') state[key] = loadedState[key];
     });
   } catch (err) {
     console.error(`Failed loading state: ${err}`);
@@ -48,7 +48,7 @@ export function setStateItem(key, value) {
 // process file transfer files
 function processFiles() {
   let fileName;
-  while (fileName = inbox.nextFile()) { // eslint-disable-line
+  while ((fileName = inbox.nextFile())) {
     if (fileName === 'settings.cbor') {
       const data = filesystem.readFileSync(fileName, 'cbor');
 

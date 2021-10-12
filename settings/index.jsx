@@ -1,4 +1,4 @@
-registerSettingsPage(({ settings }) => (
+registerSettingsPage((/* { settings } */) => (
   <Page>
     <Section title="Hi!">
       <Text>Hello world!</Text>
