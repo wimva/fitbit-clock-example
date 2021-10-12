@@ -6,8 +6,6 @@ import { apiKey } from './keys';
 
 /* Settings */
 function sendSettings() {
-  console.log(settingsStorage.getItem('letter'));
-  console.log(settingsStorage.getItem('toggle'));
   const settings = {
     letter: settingsStorage.getItem('letter')
       ? JSON.parse(settingsStorage.getItem('letter')).values[0].value

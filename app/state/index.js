@@ -54,13 +54,9 @@ function processFiles() {
     if (fileName === 'settings.cbor') {
       const data = filesystem.readFileSync(fileName, 'cbor');
 
-      console.log(JSON.stringify(data));
-
       Object.keys(state).forEach((key) => {
         if (typeof data[key] !== 'undefined') state[key] = data[key];
       });
-
-      console.log(JSON.stringify(state));
 
       updateState();
       if (callback) callback();
@@ -69,9 +65,6 @@ function processFiles() {
       const data = filesystem.readFileSync(fileName, 'cbor');
 
       state.location = data.location;
-
-      console.log(state.location);
-      console.log(JSON.stringify(state));
 
       updateState();
       if (callback) callback();
