@@ -15,7 +15,6 @@
     "prettier": "^2.4.1"
   },
   "fitbit": {
-    "appUUID": "78fe8355-c47c-440b-8782-2bfc9d8653e1",
     "appType": "clockface",
     "appClusterID": "my.alphabet.cluster",
     "developerID": "78fe8355-c47c-440b-8782-2bfc9d8653e1",
