@@ -16,8 +16,6 @@
   },
   "fitbit": {
     "appType": "clockface",
-    "appClusterID": "my.alphabet.cluster",
-    "developerID": "78fe8355-c47c-440b-8782-2bfc9d8653e1",
     "appDisplayName": "Fitbit Clock Example",
     "iconFile": "resources/icon.png",
     "wipeColor": "#ffffff",
