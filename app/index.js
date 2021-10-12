@@ -16,6 +16,7 @@ const $time = document.getElementById('time');
 const $hr = document.getElementById('hr');
 const $steps = document.getElementById('steps');
 const $calories = document.getElementById('calories');
+const $background = document.getElementById('background');
 
 // define vars for later use;
 let time = '';
@@ -43,6 +44,10 @@ function draw() {
     $location.style.display = 'inline';
   } else {
     $location.style.display = 'none';
+  }
+
+  if (getStateItem('photo')) {
+    $background.href = getStateItem('photo');
   }
 }
 

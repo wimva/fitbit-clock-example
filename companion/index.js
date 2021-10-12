@@ -3,9 +3,21 @@ import { outbox } from 'file-transfer';
 import { settingsStorage } from 'settings';
 import { geolocation } from 'geolocation';
 import { apiKey } from './keys';
+import { device } from 'peer';
+import { Image } from 'image';
+
+settingsStorage.setItem('screenWidth', device.screen.width);
+settingsStorage.setItem('screenHeight', device.screen.height);
 
 /* Settings */
-function sendSettings() {
+function sendSettings(evt) {
+  if (evt.key === 'background-image') {
+    compressAndTransferImage(evt.newValue);
+    // We now have our image data in: imageData.imageUri
+
+    return;
+  }
+
   const settings = {
     letter: settingsStorage.getItem('letter')
       ? JSON.parse(settingsStorage.getItem('letter')).values[0].value
@@ -23,6 +35,21 @@ function sendSettings() {
 }
 
 settingsStorage.addEventListener('change', sendSettings);
+
+function compressAndTransferImage(settingsValue) {
+  const imageData = JSON.parse(settingsValue);
+  Image.from(imageData.imageUri)
+    .then((image) =>
+      image.export('image/jpeg', {
+        background: '#000000',
+        quality: 40,
+      }),
+    )
+    .then((buffer) => outbox.enqueue(`${Date.now()}.jpg`, buffer))
+    .then((fileTransfer) => {
+      console.log(`Enqueued ${fileTransfer.name}`);
+    });
+}
 
 /* MapBox */
 geolocation.getCurrentPosition(locationSuccess, locationError, {

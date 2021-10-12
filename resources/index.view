@@ -1,4 +1,5 @@
 <svg viewport-fill="#000000">
+  <image id="background" x="0" y="0" width="100%" height="100%" />
   <text id="time" fill="#FFFFFF" x="50%" y="50%" font-size="72" font-family="System-Regular" text-anchor="middle" text-length="6"/>
   <text id="location" fill="#FF0000" x="50%" y="75%" font-size="36" font-family="System-Regular" text-anchor="middle" text-length="30"/>
   <text id="letter" fill="#FF0000" x="50%" y="90%" font-size="36" font-family="System-Regular" text-anchor="middle" text-length="12"/>

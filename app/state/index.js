@@ -1,10 +1,12 @@
 import { inbox } from 'file-transfer';
 import * as filesystem from 'fs';
+import * as jpeg from 'jpeg';
 
 const state = {
   letter: '',
   location: '',
   toggle: false,
+  photo: null,
   // add other state-items here
 };
 
@@ -60,11 +62,23 @@ function processFiles() {
 
       updateState();
       if (callback) callback();
-    }
-    if (fileName === 'location.cbor') {
+    } else if (fileName === 'location.cbor') {
       const data = filesystem.readFileSync(fileName, 'cbor');
 
       state.location = data.location;
+
+      updateState();
+      if (callback) callback();
+    } else {
+      if (state.photo) {
+        filesystem.unlinkSync(state.photo);
+      }
+      const outFileName = `${fileName}.txi`;
+      jpeg.decodeSync(fileName, outFileName);
+      filesystem.unlinkSync(fileName);
+      state.photo = `/private/data/${outFileName}`;
+
+      console.log(state.photo);
 
       updateState();
       if (callback) callback();
