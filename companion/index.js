@@ -1,6 +1,8 @@
 import * as cbor from 'cbor';
 import { outbox } from 'file-transfer';
 import { settingsStorage } from 'settings';
+// import { geolocation } from 'geolocation';
+// import { apiKey } from './keys';
 
 /* Settings */
 function sendSettings() {

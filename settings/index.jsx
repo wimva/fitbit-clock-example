@@ -1,21 +1,15 @@
 registerSettingsPage((/* { settings } */) => (
   <Page>
-    <Section title="Hi!">
-      <Text>Hello world!</Text>
-    </Section>
-    <Section title="Pick a letter">
+    <Section title="Pick a quote">
       <Select
-        label="Select a letter"
+        label="Select a quote"
         settingsKey="letter"
         options={[
-          { name: 'A', value: 'A' },
-          { name: 'B', value: 'B' },
-          { name: 'C', value: 'C' },
-          { name: 'D', value: 'D' },
-          { name: 'E', value: 'E' },
-          { name: 'F', value: 'F' },
-          { name: 'G', value: 'G' },
-          { name: 'H', value: 'H' },
+          { name: 'Option 1.', value: 'Have to pee yet?' },
+          { name: 'Option 2.', value: 'Dont eat yellow snow!' },
+          { name: 'Option 3.', value: 'Tea makes me pee.' },
+          { name: 'Option 4.', value: 'Never miss a time to pee!' },
+          { name: 'Option 5.', value: 'Eat, sleep, pee, repeat...' },
         ]}
       />
     </Section>
