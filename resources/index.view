@@ -1,7 +1,12 @@
-<svg viewport-fill="#000000">
-  <text id="time" fill="#FFFFFF" x="50%" y="50%" font-size="72" font-family="System-Regular" text-anchor="middle" text-length="6"/>
-  <text id="letter" fill="#FF0000" x="50%" y="90%" font-size="36" font-family="System-Regular" text-anchor="middle" text-length="12"/>
-  <text id="hr" fill="#FF0000" x="50%" y="30" font-size="24" font-family="System-Regular" text-anchor="middle" text-length="12"/>
-  <text id="steps" fill="#FF0000" x="50%" y="50" font-size="24" font-family="System-Regular" text-anchor="middle" text-length="12"/>
-  <text id="calories" fill="#FF0000" x="50%" y="70" font-size="24" font-family="System-Regular" text-anchor="middle" text-length="12"/>
+<svg>
+  <gradientRect width="100%" height="100%" gradient-type="linear" gradient-x1="0" gradient-y1="25" gradient-x2="0" gradient-y2="100%-75" gradient-color1="#61DDE8" gradient-color2="#000000" />
+  <text id="time" fill="#FFFFFF" x="50%" y="35%" font-size="110" font-family="System-Regular" text-anchor="middle" text-length="6"/>
+  <image x="50" y="44%" width="24" height="24" href="icons/hr.png" fill="#FFFFFF"/>
+  <text id="hr" fill="#FFFFFF" x="25%" y="50%" font-size="24" font-family="System-Regular" text-anchor="start" text-length="12"/>
+  <image x="50" y="54%" width="24" height="24" href="icons/steps.png" fill="#FFFFFF"/>
+  <text id="steps" fill="#FFFFFF" x="25%" y="60%" font-size="24" font-family="System-Regular" text-anchor="start" text-length="12"/>
+  <image x="50" y="64%" width="24" height="24" href="icons/calories.png" fill="#FFFFFF"/>
+  <text id="calories" fill="#FFFFFF" x="25%" y="70%" font-size="24" font-family="System-Regular" text-anchor="start" text-length="12"/>
+  <text id="letter" fill="#FFFFFF" x="50%" y="85%" font-size="24" font-family="System-Regular" text-anchor="middle" text-length="36"/>
+  <image x="60%" y="47%" width="80" height="80" href="icons/paper.png" fill="#FFFFFF"/>
 </svg>
